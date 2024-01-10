@@ -41,7 +41,7 @@ const Barrage = class {
         this.event[e] = cb
     }
     openWs() {
-        console.log(`[${new Date().toLocaleTimeString()}]`, '服务已经连接成功!')
+        console.log(`[${new Date().toLocaleTimeString()}]`, '服务已经连接成功!##############')
         clearInterval(this.timer)
         this.runServer()
     }
@@ -72,6 +72,7 @@ const Barrage = class {
                     if (mutation.type === 'childList' && mutation.addedNodes.length) {
                         let dom = mutation.addedNodes[0]
                         let user = dom[this.propsId].children.props.message.payload.user
+                        console.log(user);
                         let msg = {
                             ...this.getUser(user),
                             ... { msg_content: `${user.nickname} 来了` }
