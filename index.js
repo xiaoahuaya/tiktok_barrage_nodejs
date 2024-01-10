@@ -118,12 +118,13 @@ const Barrage = class {
             user_fansLevel: this.getLevel(user.badgeImageList, 7),
             user_id: user.id,
             user_nickName: user.nickname,
-            user_avatar: user.avatarThumb.urlList[0],
+            user_avatar: user.avatarThumb?.urlList[0],
             user_gender: user.gender === 1 ? '男' : '女',
             user_isAdmin: user.userAttr.isAdmin,
             user_fansLightName: "",
             user_levelImage: ""
         }
+        console.log(user.avatarThumb); // 打印 user.avatarThumb
         return msg
     }
     getLevel(arr, type) {
